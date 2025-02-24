@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { EXAMPLES } from '../../data.js';
 import TabButton from './TabButton.jsx';
+import Tabs from './Tabs';
+import Section from './Section.jsx';
 
 export default function Box() {
     console.log('Box Update');
@@ -25,14 +27,21 @@ export default function Box() {
 
     return (
         <div>
-            <menu>
-                {Object.keys(EXAMPLES).map((key, index) => (
-                    <TabButton key={index} isSelected={selectedTopic === key} onSelect={() => handleSelect(key)}>
-                        {EXAMPLES[key].title}
-                    </TabButton>
-                ))}
-            </menu>
-            {tabContent}
+            <Tabs
+                buttons={
+                    <>
+                        {Object.keys(EXAMPLES).map((key, index) => (
+                            <TabButton
+                                key={index}
+                                isSelected={selectedTopic === key}
+                                onSelect={() => handleSelect(key)}>
+                                {EXAMPLES[key].title}
+                            </TabButton>
+                        ))}
+                    </>
+                }>
+                {tabContent}
+            </Tabs>
         </div>
     );
 }

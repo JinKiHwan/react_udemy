@@ -1,11 +1,7 @@
 import { useState } from 'react';
-import { contents } from '../data';
-import { EXAMPLES } from '../data.js';
-
 import Header from './components/Header.jsx';
-import CoreConcept from './components/CoreConcept.jsx';
-import TabButton from './components/TabButton.jsx';
-import Box from './components/Box.jsx';
+import CoreConcepts from './components/CoreConcepts.jsx';
+import Examples from './components/Examples.jsx';
 
 function App() {
     console.log('APP UPDATE!');
@@ -14,19 +10,8 @@ function App() {
         <div>
             <Header />
             <main>
-                <section id="core-concepts">
-                    <h2>Core Concepts</h2>
-                    <ul>
-                        {contents.map((content, index) => (
-                            <CoreConcept {...content} key={index} />
-                        ))}
-                    </ul>
-                </section>
-
-                <section id="examples">
-                    <h2>Examples</h2>
-                    <Box></Box>
-                </section>
+                <CoreConcepts />
+                <Examples />
             </main>
         </div>
     );
